@@ -9,6 +9,9 @@ if (!api) {
 const ai = new GoogleGenAI({ apiKey: api || "" });
 
 async function run(prompt) {
+  if (!api) {
+    return "⚠️ API Key is missing! If this site is deployed on Netlify, please add VITE_GEMINI_API_KEY in Netlify Site Settings > Environment variables and trigger a re-deploy.";
+  }
   try {
     const response = await ai.models.generateContent({
       model: "gemini-flash-latest",
