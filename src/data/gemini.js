@@ -17,6 +17,9 @@ async function run(prompt) {
     return response.text;
   } catch (error) {
     console.error("Gemini API Error:", error);
+    if (error.message && error.message.includes("UNAUTHENTICATED")) {
+      return "⚠️ Invalid API Key! Please get a free API Key from https://aistudio.google.com/app/apikey and paste it into your .env file as VITE_GEMINI_API_KEY.";
+    }
     return "Error getting response from Gemini API: " + error.message;
   }
 }
