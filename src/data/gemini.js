@@ -23,6 +23,9 @@ async function run(prompt) {
     if (error.message && error.message.includes("UNAUTHENTICATED")) {
       return "⚠️ Invalid API Key! Please get a free API Key from https://aistudio.google.com/app/apikey and paste it into your .env file as VITE_GEMINI_API_KEY.";
     }
+    if (error.message && (error.message.includes("429") || error.message.includes("RESOURCE_EXHAUSTED"))) {
+      return "⚠️ Free Tier Quota / Rate Limit reached! Please wait 20-30 seconds and try again, or create a new free key at https://aistudio.google.com/app/apikey.";
+    }
     return "Error getting response from Gemini API: " + error.message;
   }
 }
