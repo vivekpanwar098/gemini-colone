@@ -1,0 +1,154 @@
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--sidebar-bg);
+  padding: 16px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  border-right: 0.5px solid var(--border);
+  transition: width 0.2s ease, padding 0.2s ease;
+  overflow: hidden;
+}
+
+.sidebar--collapsed {
+  width: 56px;
+  padding: 16px 8px;
+  align-items: center;
+}
+
+.sidebar__top {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar--collapsed .sidebar__top {
+  align-items: center;
+}
+
+.sidebar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--fg);
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+
+.sidebar__icon-btn:hover {
+  background: var(--bubble-user);
+}
+
+.sidebar__new-chat {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 9px 16px;
+  background: var(--bubble-user);
+  border: none;
+  border-radius: 50px;
+  color: var(--fg);
+  font-size: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sidebar__new-chat--collapsed {
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.sidebar__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 9px 12px;
+  margin-top: 6px;
+  border-radius: 50px;
+  color: var(--fg);
+  font-size: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.sidebar__row:hover {
+  background: var(--bubble-user);
+}
+
+.sidebar__row--collapsed {
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.sidebar__history {
+  margin-top: 6px;
+}
+
+.sidebar__history-empty {
+  font-size: 11px;
+  color: var(--muted);
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.sidebar__history-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 50px;
+  color: var(--fg);
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__history-item:hover {
+  background: var(--bubble-user);
+}
+
+.sidebar__history-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Mobile: sidebar ek slide-in drawer ban jaati hai ===== */
+@media (max-width: 640px) {
+  .sidebar,
+  .sidebar--collapsed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    max-width: 80vw;
+    height: 100%;
+    padding: 16px 10px;
+    align-items: stretch;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar--mobile-open {
+    transform: translateX(0);
+  }
+
+  .sidebar--collapsed .sidebar__top {
+    align-items: stretch;
+  }
+}

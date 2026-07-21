@@ -1,0 +1,73 @@
+.app {
+  background: var(--bg);
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.app__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Sirf mobile par dikhta hai — hamburger + title bar */
+.mobile-topbar {
+  display: none;
+}
+
+/* Sidebar khuli hone par piche dark overlay (sirf mobile par) */
+.sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-bottom: 0.5px solid var(--border);
+    color: var(--fg);
+    flex-shrink: 0;
+  }
+
+  .mobile-topbar__menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+  .mobile-topbar__menu-btn:hover {
+    background: var(--bubble-user);
+  }
+
+  .mobile-topbar__title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+  }
+}

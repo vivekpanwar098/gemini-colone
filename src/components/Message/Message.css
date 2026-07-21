@@ -1,0 +1,21 @@
+.message {
+  padding: 4px 0;
+  width: 100%;
+}
+
+.message-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.message-text--user {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.message-text--ai {
+  color: var(--muted);
+  font-weight: 400;
+}
