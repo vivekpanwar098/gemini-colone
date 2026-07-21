@@ -1,8 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
 
-const api = "AQ.Ab8RN6LLzMiHpeRW0vSym6EFsnpEuykSbF1sBPxlSxd3kDyt7Q";
+const api = import.meta.env.VITE_GEMINI_API_KEY;
 
-const ai = new GoogleGenAI({ apiKey: api });
+if (!api) {
+  console.warn("Warning: VITE_GEMINI_API_KEY is not defined. Please verify your .env file configuration.");
+}
+
+const ai = new GoogleGenAI({ apiKey: api || "" });
 
 async function run(prompt) {
   try {
